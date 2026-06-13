@@ -1,0 +1,14 @@
+[project]
+name = "portvilla-agent"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+dependencies = [
+    "livekit-agents[inference,silero,turn-detector]>=1.0",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.0",
+]
+
+# inference extra covers STT + LLM + TTS via LiveKit Inference — no provider API keys needed
+# silero is needed for VAD (runs locally)
+# turn-detector is needed for MultilingualModel
