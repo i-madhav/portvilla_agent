@@ -54,7 +54,7 @@ class PortfolioContext:
 @dataclass
 class AppUserData:
     ctx: agents.JobContext
-    portfolio: PortfolioContext
+    portfolio: PortfolioContext | None
 
 
 def fallback_portfolio_context(username: str) -> PortfolioContext:

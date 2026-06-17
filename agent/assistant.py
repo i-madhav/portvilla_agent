@@ -21,6 +21,16 @@ class IntroAssistant(Agent):
     def __init__(self) -> None:
         super().__init__(instructions=INTRO_PROMPT)
 
+    @function_tool
+    async def show_waitlist(self, context: RunContext[AppUserData]) -> str:
+        """Show the waitlist signup input in the UI. The input is shown automatically
+        at session start, so only call this if the visitor explicitly asks to see it again.
+        """
+        room = context.userdata.ctx.room
+        await emit_ui_command(room, UICommandType.SHOW_WAITLIST)
+        logger.info("Showing waitlist modal")
+        return "Waitlist input is now visible to the visitor."
+
 
 class PortvillaAssistant(Agent):
     def __init__(self, portfolio: PortfolioContext) -> None:

@@ -17,6 +17,7 @@ class UICommandType(str, Enum):
     SHOW_GITHUB = "SHOW_GITHUB"
     SHOW_EXPERIENCE = "SHOW_EXPERIENCE"
     CLEAR_CONTENT = "CLEAR_CONTENT"
+    SHOW_WAITLIST = "SHOW_WAITLIST"
 
 
 @dataclass
