@@ -110,7 +110,7 @@ async def intro_agent(ctx: JobContext) -> None:
             yield frame
 
     # adding await for sequential execution to ensure the greeting is played before showing the waitlist input
-    await session.say(INTRO_GREETING, audio=_stream_intro_frames())
+    await session.say(INTRO_GREETING, audio=_stream_intro_frames() , allow_interruptions=False)
     await emit_ui_command(ctx.room, UICommandType.SHOW_WAITLIST)
     logger.info("Intro greeting playing, waitlist input shown")
 
